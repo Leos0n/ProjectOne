@@ -1,4 +1,4 @@
-# Learning Workspace
+# SkillsLearn
 
 Personal learning system built around Matt Pocock's [/teach skill](https://github.com/mattpocock/skills) for Claude Code.
 
@@ -20,6 +20,10 @@ Lessons are HTML files in `learning/<topic>/lessons/` — ask Claude to send the
 
 Commit and push after each session so progress (learning records, new lessons) is never lost.
 
-## Current topics
+## Branch model
 
-- **chess** — see `learning/chess/MISSION.md`
+`main` holds the shared base: the /teach skill, helper scripts, and this README. **Each topic lives on its own branch**, created from `main`, with its workspace under `learning/<topic>/`:
+
+- `chess` — learning chess (see `learning/chess/MISSION.md` on that branch)
+
+To start a new topic: branch from `main` (e.g. `git checkout -b spanish main`), run `learning/new-topic.sh spanish` (or ask Claude to scaffold it), commit, and push the branch.
