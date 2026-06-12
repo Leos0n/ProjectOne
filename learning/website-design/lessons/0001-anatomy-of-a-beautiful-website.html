@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 0001 — The Anatomy of a Beautiful Website</title>
+<style>
+  :root { --ink: #1a1a1a; --soft: #555; --accent: #2f4f8b; --bg: #fcfdff; --rule: #ddd; }
+  body { font-family: Georgia, 'Times New Roman', serif; color: var(--ink); background: var(--bg);
+         max-width: 42rem; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; line-height: 1.65; }
+  h1 { font-size: 1.8rem; line-height: 1.2; margin-bottom: .3rem; }
+  h2 { font-size: 1.25rem; margin-top: 2.5rem; border-bottom: 1px solid var(--rule); padding-bottom: .3rem; }
+  h3 { font-size: 1.05rem; margin-top: 1.6rem; }
+  .meta { color: var(--soft); font-style: italic; margin-bottom: 2rem; }
+  .callout { border-left: 3px solid var(--accent); padding: .6rem 1rem; background: #eff3fa; margin: 1.5rem 0; }
+  .quiz { margin: 1.2rem 0; padding: 1rem 1.2rem; border: 1px solid var(--rule); border-radius: 6px; }
+  .quiz p { margin: 0 0 .6rem; }
+  .quiz button { font-family: inherit; font-size: 1rem; margin: .2rem .4rem .2rem 0;
+                 padding: .35rem .8rem; border: 1px solid var(--soft); border-radius: 4px;
+                 background: #fff; cursor: pointer; }
+  .quiz button.right { background: #e4f2e4; border-color: #2e7d32; }
+  .quiz button.wrong { background: #f8e3e0; border-color: #8b3a2f; }
+  .why { display: none; color: var(--soft); font-size: .95rem; margin-top: .5rem; }
+  a { color: var(--accent); }
+  footer { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--rule);
+           color: var(--soft); font-size: .95rem; }
+</style>
+</head>
+<body>
+
+<h1>The Anatomy of a Beautiful Website</h1>
+<p class="meta">Lesson 0001 · ~20 minutes · Mission: image → real implementation</p>
+
+<p>Your entire pipeline — prompting image models, judging mockups, directing Claude Code —
+runs on one ability: <strong>seeing what makes a design good, and naming it</strong>.
+"Make it look better" is not a direction. "Increase the spacing between sections and drop
+the body text to a muted gray" is. This lesson gives you the four levers that explain about
+90% of why a page looks designed or amateur
+(<a href="https://www.refactoringui.com/">Refactoring UI</a>).</p>
+
+<h2>The Four Levers</h2>
+
+<h3>1. Hierarchy — what do I look at first?</h3>
+<p>On a good page your eye lands somewhere deliberate, then flows in order: headline →
+subline → button. Hierarchy is built by making important things <em>bigger, bolder,
+darker</em> — and, just as importantly, by making everything else smaller, lighter, and
+grayer. Amateur pages make everything loud, so nothing is.</p>
+
+<h3>2. Spacing — does it have room to breathe?</h3>
+<p>The most common beginner tell is cramped layouts. Premium sites use far more whitespace
+than feels natural — around sections, between lines, inside buttons. Related things sit
+close together; unrelated things sit far apart. When a mockup feels "cheap", the first
+suspect is always spacing.</p>
+
+<h3>3. Typography — do the letters feel intentional?</h3>
+<p>Good pages use <em>one or two</em> typefaces, a small set of deliberate sizes (a
+<em>type scale</em>), and comfortable line length (roughly 45–75 characters). Body text is
+rarely pure black on pure white — it's softened toward gray. Headlines are tight;
+paragraphs are relaxed.</p>
+
+<h3>4. Color — is there discipline?</h3>
+<p>A designed page commits to a palette: usually one dominant neutral family, one accent
+color used <em>sparingly</em> (buttons, links, key highlights), and real contrast between
+text and background. Amateur pages use too many colors at full saturation, all competing.</p>
+
+<div class="callout">
+<p><strong>The critique routine</strong> — for any page or mockup, ask in order:</p>
+<ol>
+  <li><strong>Hierarchy</strong> — where does my eye go first? Is that the right place?</li>
+  <li><strong>Spacing</strong> — is anything cramped? Are groups clear?</li>
+  <li><strong>Typography</strong> — how many fonts/sizes? Comfortable to read?</li>
+  <li><strong>Color</strong> — one accent, used with discipline? Enough contrast?</li>
+</ol>
+<p>This is to design what the blunder check is to chess: run it on <em>everything</em> —
+including (especially) AI-generated mockups before you build them.</p>
+</div>
+
+<h2>Quiz — no peeking back</h2>
+
+<div class="quiz">
+  <p>1. Hierarchy is created by emphasizing key elements and also by…</p>
+  <button onclick="mark(this,false)">animating others</button>
+  <button onclick="mark(this,true)">de-emphasizing</button>
+  <button onclick="mark(this,false)">centering text</button>
+  <p class="why">De-emphasizing the rest (smaller, lighter, grayer). If everything shouts, nothing leads.</p>
+</div>
+
+<div class="quiz">
+  <p>2. A layout feels "cheap". The first lever to inspect is…</p>
+  <button onclick="mark(this,false)">the colors</button>
+  <button onclick="mark(this,true)">the spacing</button>
+  <button onclick="mark(this,false)">the images</button>
+  <p class="why">Cramped spacing is the most common amateur tell. Premium = more whitespace than feels natural.</p>
+</div>
+
+<div class="quiz">
+  <p>3. A disciplined palette typically means…</p>
+  <button onclick="mark(this,true)">one accent color</button>
+  <button onclick="mark(this,false)">five accent colors</button>
+  <button onclick="mark(this,false)">no neutral tones</button>
+  <p class="why">Neutrals do most of the work; one accent appears sparingly at moments that matter.</p>
+</div>
+
+<div class="quiz">
+  <p>4. Comfortable body-text line length is roughly…</p>
+  <button onclick="mark(this,false)">10–25 characters</button>
+  <button onclick="mark(this,true)">45–75 characters</button>
+  <button onclick="mark(this,false)">95–150 characters</button>
+  <p class="why">45–75 characters per line. Much longer and the eye loses its place; much shorter and reading feels choppy.</p>
+</div>
+
+<h2>Practice — your first critiques (~30 min, this week)</h2>
+<ol>
+  <li>Pick <strong>3 websites</strong>: one you find beautiful, one you find ugly, and one from
+      <a href="https://www.awwwards.com/">Awwwards</a> or <a href="https://land-book.com/">Land-book</a>.</li>
+  <li>For each, run the 4-step critique routine and write <strong>3–4 sentences</strong> naming
+      specifically what works or fails, lever by lever. Use the
+      <a href="../reference/critique-checklist.html">critique checklist</a>.</li>
+  <li>Bring your three critiques back to your teacher (the Claude session on this branch).
+      We'll review them together, sharpen the vocabulary, and that becomes your first
+      learning record.</li>
+</ol>
+
+<h2>Primary source</h2>
+<p>📖 <a href="https://www.refactoringui.com/">Refactoring UI — Wathan &amp; Schoger</a> —
+the canonical "design for non-designers" text; its free preview covers hierarchy and
+spacing. Also skim one law at <a href="https://lawsofux.com/">Laws of UX</a> per session.</p>
+
+<footer>
+<p>❓ Anything unclear — what a type scale is, how gray is "muted", why whitespace works —
+<strong>ask your teacher</strong>. Next lesson (0002, typography &amp; spacing systems)
+builds directly on your three critiques.</p>
+</footer>
+
+<script>
+function mark(btn, correct) {
+  const quiz = btn.closest('.quiz');
+  quiz.querySelectorAll('button').forEach(b => b.classList.remove('right','wrong'));
+  btn.classList.add(correct ? 'right' : 'wrong');
+  quiz.querySelector('.why').style.display = 'block';
+}
+</script>
+</body>
+</html>
