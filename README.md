@@ -25,5 +25,6 @@ Commit and push after each session so progress (learning records, new lessons) i
 `main` holds the shared base: the /teach skill, helper scripts, and this README. **Each topic lives on its own branch**, created from `main`, with its workspace under `learning/<topic>/`:
 
 - `chess` — learning chess (see `learning/chess/MISSION.md` on that branch)
+- `website-design` — AI image mockups → real websites; includes the [taste-skill](https://github.com/Leonxlnx/taste-skill) pack and a 10-lesson course (`learning/website-design/COURSE.md`)
 
 To start a new topic: branch from `main` (e.g. `git checkout -b spanish main`), run `learning/new-topic.sh spanish` (or ask Claude to scaffold it), commit, and push the branch.
